@@ -4,6 +4,7 @@ class UserPagesController < ApplicationController
 
   def dashboard
     @user = logged_in_user
+    @postQuestions =@user.post_questions
   end
 
   def user_edit_info

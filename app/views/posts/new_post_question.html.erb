@@ -1,0 +1,23 @@
+<%# app/views/messages/_form.html.erb %>
+<%= render "layouts/header" %>
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger">
+    <%= msg %>
+  </div>
+<% end %>
+
+<%= form_with url: "/post/question/create", method: :post, "data-turbo": false do |form| %>
+  <div class="field">
+    <%= form.text_field :title , value: @postQuestion.title%>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content , value: @postQuestion.content%>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
+
+<script>
+    document.querySelectorAll('form').forEach(function (el) {
+        el.dataset.turbo = false
+    })
+</script>

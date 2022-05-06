@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   get '/user/edit' => 'user_pages#user_edit_info'
   get '/user/update' => 'user_pages#user_update'
 
+  #post_pages
+  get '/post/question/new' => 'posts#new_post_question'
+  post '/post/question/new' => 'posts#create_post_question'
+  get '/post/question/view' => 'posts#view_post_question'
+
 end

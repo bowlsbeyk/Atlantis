@@ -1,4 +1,13 @@
 <%= render "layouts/header" %>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
+    <%= msg %>
+  </div>
+<% end %>
 
+Hello, <%= @user.first_name + " " + @user.last_name %>!<br>
+<%= link_to "New Post Question", {controller: :posts, action: :new_post_question}, class: "btn btn-primary" %><br>
 
-Hello, <%= @user.first_name + " " + @user.last_name %>!
+<% @postQuestions.each do |q| %>
+  <%= link_to q.title, {controller: :posts, action: :view_post_question, id: q.id}, class: "btn btn-success" %><br>
+<% end %>
