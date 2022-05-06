@@ -1,0 +1,15 @@
+<%= render 'layouts/header' %>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger">
+    <%= msg %>
+  </div>
+<% end %>
+<%= @user.uid %>
+
+<%= form_with url: "/user/update", method: :get do |form| %>
+  <%= form.text_field :first_name, value: @user.first_name %>
+  <%= form.text_field :last_name, value: @user.last_name %>
+  <%= form.text_field :email, value: @user.email %>
+  <%= form.hidden_field :uid, value: @user.uid %>
+  <%= form.submit "Submit" %>
+<% end %>

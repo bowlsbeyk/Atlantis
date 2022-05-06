@@ -1,0 +1,10 @@
+
+<% if session[:userinfo].present? %>
+  <%= get_user_name_from_sesson %>
+  <%= button_to 'Logout', '/auth/logout', method: :get ,"data-turbo": false%>
+<% else %>
+  <%= button_to 'Login', '/auth/auth0', method: :post, "data-turbo": false%>
+<% end %>
+
+
+<br>
